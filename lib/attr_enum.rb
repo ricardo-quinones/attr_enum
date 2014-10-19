@@ -32,7 +32,7 @@ module AttrEnum
       end
 
       class_eval do
-        unless const_defined? "#{attr_name.to_s.upcase.pluralize}"
+        unless const_defined? "#{attr_name.to_s.pluralize.upcase}"
           const_set("#{attr_name.to_s.pluralize.upcase}", enums.with_indifferent_access)
         end
 
