@@ -24,7 +24,7 @@ Or install it yourself as:
 
 **In your model**
 
-    class User < ActiveRecord::Base
+    class Card < ActiveRecord::Base
       attr_enum :suit, {clubs: 0, hearts: 1, diamonds: 2, spades: 3}
 
       ...
