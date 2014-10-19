@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Makes integer type columns function similarly to enum columns."
   s.description = "A simple and declarative way to make integer type columns that are used to signal the state of a model/object function more like enums in code."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "rails", "~> 3.2.18"
 
