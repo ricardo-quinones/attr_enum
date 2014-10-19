@@ -4,7 +4,7 @@ A simple and declarative way to make integer type columns used to signal state o
 
 ## Why?
 
-Makes code more declarative and easier to understand when changing the state or type of model/object.
+Makes code more declarative and easier to understand when changing the state or type of a model/object.
 
 ## Installation
 
