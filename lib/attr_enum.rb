@@ -21,6 +21,13 @@ module AttrEnum
       #   c.suit = :clubs
       #   c.suit
       #   => :clubs
+      # ==== dirty attributes (attribute_was)
+      #   c = Card.new
+      #   c.suit = :clubs
+      #   c.save
+      #   c.suit = :hearts
+      #   c.suit_was
+      #   => :clubs
       # ==== Error handling:
       #   Card.new.suit = :jack
       #   => EnumeratedTypeError, Not a valid suit. Please assign the suit to one of the following: :clubs, :hearts, :diamonds, or :spades.
@@ -64,6 +71,10 @@ module AttrEnum
           else
             write_attribute(attr_name.to_sym, enums[value])
           end
+        end
+
+        define_method "#{attr_name}_was" do
+          send("#{attr_name}_changed?") ? enums.invert[changed_attributes[attr_name.to_s]].to_sym : send("#{attr_name}")
         end
       end
     end

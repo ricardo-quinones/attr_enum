@@ -46,6 +46,11 @@ Or install it yourself as:
     >
     > card.suit = -1
      => EnumeratedTypeError: That is not a valid suit integer value. Please assign the integer value to one of the following: 0, 1, 2, or 3.
+    >
+    > card.save
+    > card.suit = :clubs
+    > card.suit_was
+     => :hearts
 
 
 ## Contributing

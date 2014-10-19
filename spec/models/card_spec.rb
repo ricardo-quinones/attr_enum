@@ -31,4 +31,13 @@ describe Card do
   it "creates a Hash constant containing the keys and values of the allowable enums" do
     expect(Card::SUITS).to eq(suit_hash.with_indifferent_access)
   end
+
+  it "attribute_was should reference the enum, not the integer" do
+    card.suit = :hearts
+    card.save
+    card.reload
+    card.suit = :clubs
+    expect(card.suit_was).to eq(:hearts)
+    expect(card.suit).to eq(:clubs)
+  end
 end
