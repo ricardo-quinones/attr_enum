@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Card do
   let(:card) { Card.new }
 
-  suit_hash = {clubs: 0, hearts: 1, diamonds: 2, spades: 3}
+  suit_hash = { clubs: 0, hearts: 1, diamonds: 2, spades: 3 }
 
   it "allows setting the suit via symbols" do
     card.suit = :hearts

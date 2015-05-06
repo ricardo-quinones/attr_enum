@@ -1,6 +1,6 @@
 module AttrEnum
   extend ActiveSupport::Concern
- 
+
   included do
   end
 
@@ -50,7 +50,11 @@ module AttrEnum
           # allows for nil values in column.
           return enum_int unless enum_int
 
-          enums.key(enum_int).to_sym
+          value = enums.key(enum_int)
+
+          # This removes the necessity for the keys of the hash to be strings or symbols.
+          # Keys could be `nil`.
+          value.respond_to?(:to_sym) ? value.to_sym : value
         end
 
         define_method "#{attr_name}=" do |value|
