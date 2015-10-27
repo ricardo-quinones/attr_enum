@@ -67,13 +67,13 @@ module AttrEnum
               attr_int_string = enums.values.map { |s| "#{s}" }.to_sentence(last_word_connector: ', or ')
               raise EnumeratedTypeError, "That is not a valid #{attr_name} integer value. Please assign the integer value to one of the following: #{attr_int_string}."
             end
-            write_attribute(attr_name.to_sym, value)
+            self[attr_name.to_sym] = value
           elsif !enums[value]
             # Raise error if key not found
             attr_name_string = enums.keys.map { |s| ":#{s}" }.to_sentence(last_word_connector: ', or ')
             raise EnumeratedTypeError, "That is not a valid #{attr_name}. Please assign the #{attr_name} to one of the following: #{attr_name_string}."
           else
-            write_attribute(attr_name.to_sym, enums[value])
+            self[attr_name.to_sym] = enums[value]
           end
         end
 
